@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desenho em CSS</title>
-    <!--<script>
-        window.onmousemove = function(objetoEvent) {
+    <script>
+        /*window.onmousemove = function(objetoEvent) {
             var cabeca = document.querySelector(".cabeca");
             var y = objetoEvent.y;
             var grau = 0;
@@ -16,251 +16,257 @@
                 grau = ((y / -70) * 0.8);
             }
             cabeca.style.transform = "rotateZ(" + grau  + "deg)"
-        }
-    </script>-->
+        }*/
+    </script>
     <style>
+    
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
         * {
             box-sizing: border-box;
             padding: 0;
             margin: 0;
         }
 
-        .container {
-            /*background-image: url(logo.jpg);*/
-            background-size: contain;
-            width: 200px;
-            height: 200px;
-            position: absolute;
-            display: inline-block;
+        .cartoon {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            background-color: blueviolet;
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            clip-path: circle(50%);
+            z-index: -1;
         }
 
         .cabeca {
-            width: 33.5%;
-            height: 50%;
-            border: 2px solid rgb(79, 17, 28);
-            border-top-left-radius: 40px;
-            border-top-right-radius: 46.15% 30.60%;
-            border-bottom-right-radius: 30.75% 21.50%;
-            border-bottom-left-radius: 53.85% 35.70%;
+            width: 60px;
+            height: 90px;
+            border: 1px solid rgb(79, 17, 28);
+            border-radius: 28px 28px 20px 35px;
             background-color: rgb(255, 237, 217);
-            box-shadow: inset rgb(242, 225, 207) 0.55rem 0; 
-            /*, inset rgb(240, 225, 205) 0px -30px;*/
+            box-shadow: inset rgb(242, 225, 207) 7px 0, 
+                        inset rgb(240, 225, 205) 0 -30px 0 -8px;
             position: absolute;
-            left: 36%;
-            top: 9%;
+            left: 62px;
+            top: 16px;
+            transform-origin: bottom center;
             z-index: 1;
         }
 
         .orelha {
-            width: 26.15%;
-            height: 17.35%;
-            border: 0.10rem solid rgb(79 17 28);
+            width: 16px;
+            height: 16px;
+            border: 1px solid rgb(79 17 28);
             border-right-color: transparent;
             border-radius: 50%;
             transform: rotate(10deg);
             background-color: rgb(242, 225, 207);
             position: absolute;
-            left: -15.5%;
-            top: 48.8%;
+            left: -9px;
+            top: 42px;
         }
 
         .orelha::after {
             position: absolute;
             content: "";
-            height: 38%;
-            width: 38%;
-            border: 0.10rem solid;
+            height: 5px;
+            width: 5px;
+            border: 1px solid;
             border-radius: 50%;
-            border-color: transparent transparent transparent rgb(79, 17, 28);
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            border-left-color: rgb(79, 17, 28);
             transform: rotate(30deg);
-            left: 19%;
-            top: 19%;
+            left: 3px;
+            top: 3px;
         }
 
         .sobrancelha {
             position: absolute;
-            width: 13.2%;
-            height: 3.8%;
-            top: 37.5%;
-            right: 26.8%;
+            width: 9px;
+            height: 3px;
+            top: 34px;
+            right: 15px;
         }
 
         .sobrancelha::after {
             position: absolute;
             content: "";
-            width: 188%;
-            height: 100%;
-            border-top-right-radius: 14.6% 50%;
-            border-bottom-right-radius: 14.6% 50%;
-            border-top-left-radius: 14.6% 50%;
-            border-bottom-left-radius: 14.6% 50%;
+            width: 13px;
+            height: 3px;
+            border-radius: 1.5px;
             background-color: rgb(79, 17, 28);
-            left: 102%;
-            transform: rotate(1deg);
+            left: 9px;
         }
 
         .sobrancelha::before {
             position: absolute;
             content: "";
-            width: 188%;
-            height: 100%;
-            border-top-right-radius: 14.6% 50%;
-            border-bottom-right-radius: 14.6% 50%;
-            border-top-left-radius: 14.6% 50%;
-            border-bottom-left-radius: 14.6% 50%;
+            width: 13px;
+            height: 3px;
+            border-radius: 1.5px;
             background-color: rgb(79, 17, 28);
-            left: -190%;
-            transform: rotate(-1deg);
+            left: -13px;
         }
 
         .direito {
-            width: 18.80%;
-            height: 8.10%;
-            border: 0.10rem solid rgb(79, 17, 28);
-            border-radius: 50px 30px 30px 30px;
+            width: 11px;
+            height: 7px;
+            border: 1px solid rgb(79, 17, 28);
+            border-radius: 4px;
             background-color: rgb(255, 255, 255);
             position: absolute;
-            top: 45%;
-            left: 76%;
+            top: 40px;
+            left: 44px;
         }
 
         .direito::after {
             position: absolute;
             content: "";
-            width: 65%;
-            height: 107.9%;
+            width: 5px;
+            height: 5px;
             border-radius: 50%;
             background-color: rgb(79, 17, 28);
-            top: -3.5%;
-            left: 10%;
+            top: 0;
+            left: 1px;
         }
 
         .direito::before {
             position: absolute;
             content: "";
-            background-color: rgb(255, 219, 171);
-            border-bottom-left-radius: 65% 40%;
-            border-bottom-right-radius: 65% 40%;
-            width: 122%;
-            height: 265%;
+            background-color: rgb(251 212 181);
+            border-radius: 0 0 5px 5px;
+            width: 11px;
+            height: 15px;
             z-index: -1;
-            left: -11%;
-            top: -94%;
+            left: -1px;
+            top: -5px;
         }
 
         .esquerdo {
-            width: 18.80%;
-            height: 8.10%;
-            border: 0.10rem solid rgb(79, 17, 28);
-            border-radius: 30px 30px 30px 30px;
+            width: 11px;
+            height: 7px;
+            border: 1px solid rgb(79, 17, 28);
+            border-radius: 4px;
             background-color: rgb(255, 255, 255);
             position: absolute;
-            top: 45%;
-            left: 38%;
+            top: 40px;
+            left: 22px;
         }
 
         .esquerdo::after {
             position: absolute;
             content: "";
-            width: 65%;
-            height: 107.9%;
+            width: 5px;
+            height: 5px;
             border-radius: 50%;
             background-color: rgb(79, 17, 28);
-            top: -3.5%;
-            left: 10%;
+            top: 0;
+            left: 1px;
         }
 
         .esquerdo::before {
             position: absolute;
             content: "";
-            background-color: rgb(255, 219, 171);
-            border-bottom-left-radius: 65% 40%;
-            border-bottom-right-radius: 65% 40%;
-            width: 122%;
-            height: 265%;
+            background-color: rgb(251 212 181);
+            border-radius: 0 0 5px 5px;
+            width: 11px;
+            height: 15px;
             z-index: -1;
-            left: -11%;
-            top: -94%;
+            left: -1px;
+            top: -5px;
         }
 
-        /*.nariz {
-            width: 6px;
-            height: 6px;
-            border: 2px solid brown;
+        .nariz {
+            width: 10px;
+            height: 22px;
+            border: 1px solid rgb(79 17 28);
+            border-bottom-right-radius: 8px;
+            border-top-right-radius: 8px 16px;
             border-left-color: transparent;
             border-top-color: transparent;
-            border-radius: 0 0 100% 0;
             position: absolute;
-            top: 55px;
-            left: 40px;
+            left: 33px;
+            top: 37px;
         }
-
-        .nariz::before {
-            position: absolute; /* Estudar o motivo */ /*
-            content: "";
-            height: 16px;
-            width: 2px;
-            background-color: brown;
-            border-top-left-radius: 1px;
-            border-top-right-radius: 1px;
-            transform: rotate(351deg);
-            left: 4.7px;
-            top: -17.2px;
-        }
-
-        .nariz::after {
-            position: absolute; /* Estudar o motivo */ /*
-            content: "";
-            height: 2px;
-            width: 4px;
-            background-color: brown;
-            border-top-left-radius: 1px;
-            border-bottom-left-radius: 1px;
-            left: -6px;
-            top: 6px;
-        }*/
 
         .boca {
-            width: 27%;
-            height: 5.5%;
-            border: 0.10rem solid rgb(79 17 28);;
+            width: 18px;
+            height: 6px;
+            border: 1px solid rgb(79 17 28);
             border-right-color: transparent;
             border-top-color: transparent;
-            border-bottom-left-radius: 25% 65%;
+            border-bottom-left-radius: 4px;
             position: absolute;
-            top: 77%;
-            left: 49%;
+            top: 67px;
+            left: 27px;
         }
 
-        /* melhorar o posicionamento em tamanhos diferentes */
-        .boca::after {
-            position: absolute; /* Estudar o motivo */
-            content: "";
-            height: 0.35rem;
-            width: 0.10rem;
-            background-color: rgb(79 17 28);
-            border-top-left-radius: 70% 50%;
-            border-top-right-radius: 70% 50%;
-            left: -7.5%;
-            top: -60%;
+        .corpo {
+            width: 100px;
+            height: 74px;
+            border: 1px solid rgb(79, 17, 28);
+            border-top-right-radius: 28px;
+            border-top-left-radius: 26px;
+            background-color: rgb(227 89 87);
+            box-shadow: inset rgb(204 80 78) 8px 0;
+            position: absolute;
+            left: 38px;
+            top: 107px;
+            z-index: -1;
         }
 
-        /* melhorar o posicionamento em tamanhos diferentes */
-        .boca::before{
-            position: absolute; /* Estudar o motivo */
+        .corpo::after {
+            position: absolute;
             content: "";
-            height: 0.10rem;
-            width: 0.35rem;
-            background-color: rgb(79 17 28);
-            border-top-right-radius: 50% 70%;
-            border-bottom-right-radius: 50% 70%;
-            left: 100px; /*99%*/
-            top: 100.2%;
+            width: 2px;
+            height: 32px;
+            border: 1px solid;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            border-left-color: rgb(79, 17, 28);
+            top: 38px;
+            left: 26px;
+        }
+        
+        .pescoco {
+            width: 30px;
+            height: 23px;
+            border: 1px solid rgb(79, 17, 28);
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 13px;
+            background-color: rgb(251 212 181);
+            box-shadow: inset rgb(255 237 217) 0 -14px 0 -8px;
+            position: absolute;
+            left: 36px;
+            top: -13px;
+        }
+
+        .pescoco::after {
+            position: absolute;
+            content: "";
+            width: 36px;
+            height: 13px;
+            border: 1px solid rgb(79, 17, 28);
+            border-bottom-right-radius: 13px;
+            border-bottom-left-radius: 15px;
+            background-color: rgb(204 80 78);
+            left: -5px;
+            top: 11px;
+            z-index: -1;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="cartoon">
         <div class="cabeca">
             <div class="orelha"></div>
             <div class="olhos">
@@ -270,6 +276,9 @@
             </div>
             <div class="nariz"></div>
             <div class="boca"></div>
+        </div>
+        <div class="corpo">
+            <div class="pescoco"></div>
         </div>
     </div>
 </body>
