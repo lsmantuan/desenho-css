@@ -6,23 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Desenho em CSS</title>
     <script>
-        /*window.onmousemove = function(objetoEvent) {
-            var cabeca = document.querySelector(".cabeca");
-            var y = objetoEvent.y;
-            var grau = 0;
-            if (y > 70) {
-                grau = ((y / 70) * 0.5);
-            } else {
-                grau = ((y / -70) * 0.8);
-            }
-            cabeca.style.transform = "rotateZ(" + grau  + "deg)"
-        }*/
+        window.onmousemove = function(event) {
+            let cabeca = document.querySelector(".cabeca");
+            let y = event.y;
+            let grau = 0;
+            if (y > 350) {
+                grau = ((y / 350) * 3);
+                cabeca.style.transform = "rotate(" + grau  + "deg)";
+            } 
+        }
     </script>
     <style>
     
         html, body {
             width: 100%;
             height: 100%;
+            background-image: radial-gradient(circle, #77458C 30%, #D96A7E);
         }
 
         * {
@@ -35,13 +34,13 @@
             width: 170px;
             height: 170px;
             border-radius: 50%;
-            background-color: blueviolet;
+            background-color: white;
             position: relative;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             clip-path: circle(50%);
-            z-index: -1;
+            z-index: 1;
         }
 
         .cabeca {
@@ -56,6 +55,7 @@
             left: 62px;
             top: 16px;
             transform-origin: bottom center;
+            transform: rotate(3deg);
             z-index: 1;
         }
 
