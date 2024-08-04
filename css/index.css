@@ -1,0 +1,267 @@
+@charset "utf-8";
+
+:root {
+    --barba: rgb(240, 225, 205);
+    --camiseta-sombra: rgb(186, 72, 71);
+    --camiseta: rgb(207, 81, 80);
+    --contorno: rgb(79, 17, 28);
+    --fundo-claro: rgb(255, 255, 255);
+    --fundo-escuro: rgb(20, 90, 120);
+    --olheira: rgb(252, 222, 197);
+    --pele-sombra: rgb(242, 225, 207);
+    --pele: rgb(255, 237, 217);
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    background-image: repeating-radial-gradient(
+        circle,
+        rgba(128, 158, 173, 0.15),
+        rgba(128, 158, 173, 0.15) 0.1rem,
+        white 0.1rem,
+        white 0.5rem
+    );
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.cartoon {
+    font-size: 30px;
+    width: 17em;
+    height: 17em;
+    border-radius: 50%;
+    background-color: white;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    clip-path: circle(50%);
+    z-index: 1;
+}
+
+.cabeca {
+    width: 6em;
+    height: 9em;
+    border: 0.1em solid var(--contorno);
+    border-radius: 2.8em 2.8em 2em 3.5em;
+    background-color: var(--pele);
+    box-shadow: inset var(--pele-sombra) 0.7em 0, inset var(--barba) 0 -3em 0 -0.8em;
+    position: absolute;
+    left: 5.9em;
+    top: 1.6em;
+    transform-origin: bottom center;
+    transform: rotate(2deg) scaleX(1);
+    z-index: 1;
+}
+
+.orelha {
+    width: 1.6em;
+    height: 1.6em;
+    border: 0.1em solid var(--contorno);
+    border-right-color: transparent;
+    border-radius: 50%;
+    transform: rotate(10deg);
+    background-color: var(--pele);
+    position: absolute;
+    left: -0.9em;
+    top: 4.2em;
+}
+
+.orelha::after {
+    position: absolute;
+    content: '';
+    height: 0.5em;
+    width: 0.5em;
+    border: 0.1em solid;
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: var(--contorno);
+    transform: rotate(30deg);
+    left: 0.3em;
+    top: 0.3em;
+}
+
+.sobrancelha-esquerda {
+    position: absolute;
+    width: 1.5em;
+    height: 0.25em;
+    border-radius: 0.15em;
+    background-color: var(--contorno);
+    transform: rotate(-1deg);
+    top: 3em;
+    right: 2.35em;
+}
+
+.sobrancelha-direita {
+    position: absolute;
+    width: 1.5em;
+    height: 0.25em;
+    border-radius: 0.15em;
+    background-color: var(--contorno);
+    transform: rotate(1deg);
+    top: 3em;
+    right: 0.2em;
+}
+
+.olho-direito {
+    width: 1.2em;
+    height: 0.8em;
+    border: 0.1em solid var(--contorno);
+    border-radius: 0.5em;
+    background-color: var(--fundo-claro);
+    position: absolute;
+    top: 3.8em;
+    left: 4.3em;
+}
+
+.pupila-direita {
+    position: absolute;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background-color: var(--contorno);
+    top: 3.95em;
+    left: 4.7em;
+}
+
+.olho-esquerdo {
+    width: 1.2em;
+    height: 0.8em;
+    border: 0.1em solid var(--contorno);
+    border-radius: 0.5em;
+    background-color: var(--fundo-claro);
+    position: absolute;
+    top: 3.8em;
+    left: 2.2em;
+}
+
+.pupila-esquerda {
+    position: absolute;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background-color: var(--contorno);
+    top: 3.95em;
+    left: 2.6em;
+}
+
+.olheira-esquerda {
+    position: absolute;
+    background-color: var(--olheira);
+    border-radius: 0.1em 0.1em 0.5em 0.5em;
+    width: 1.3em;
+    height: 2em;
+    z-index: -1;
+    transform-origin: bottom center;
+    transition: transform 0.1s ease-in-out;
+    top: 3.1em;
+    left: 2.1em;
+}
+
+.olheira-direita {
+    position: absolute;
+    background-color: var(--olheira);
+    border-radius: 0.1em 0.1em 0.5em 0.5em;
+    width: 1.3em;
+    height: 2em;
+    z-index: -1;
+    transform-origin: bottom center;
+    transition: transform 0.1s ease-in-out;
+    top: 3.1em;
+    left: 4.2em;
+}
+
+.nariz {
+    width: 1.26em;
+    height: 2.16em;
+    border: 0.11em solid var(--contorno);
+    box-shadow: inset -0.3em -0.3em 0 -0.18em var(--pele-sombra);
+    border-bottom-right-radius: 0.65em;
+    border-bottom-left-radius: 0.8em;
+    border-top-right-radius: 0.8em 1.8em;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    transform: skewX(5deg);
+    position: absolute;
+    left: 3em;
+    top: 3.8em;
+}
+
+.boca {
+    width: 2.5em;
+    height: 1em;
+    border: 0.11em solid var(--contorno);
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-top-color: transparent;
+    border-bottom-left-radius: 3em 2em;
+    border-bottom-right-radius: 3em 2em;
+    transform: rotate(0deg) scaleY(1);
+    position: absolute;
+    top: 6.4em;
+    left: 2.4em;
+}
+
+.corpo {
+    width: 10em;
+    height: 7.4em;
+    border: 0.1em solid var(--contorno);
+    border-top-right-radius: 2.8em;
+    border-top-left-radius: 2.6em;
+    background-color: var(--camiseta);
+    box-shadow: inset var(--camiseta-sombra) 0.8em 0;
+    position: absolute;
+    left: 3.8em;
+    top: 10.7em;
+    z-index: -1;
+}
+
+.corpo::after {
+    position: absolute;
+    content: '';
+    width: 0.2em;
+    height: 3.2em;
+    border: 0.1em solid;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: var(--contorno);
+    top: 3.8em;
+    left: 2.6em;
+}
+
+.pescoco {
+    width: 3em;
+    height: 2.3em;
+    border: 0.1em solid var(--contorno);
+    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: 1.3em;
+    background-color: var(--pele-sombra);
+    box-shadow: inset var(--pele) 0 -1.4em 0 -0.8em;
+    position: absolute;
+    left: 3.6em;
+    top: -1.3em;
+}
+
+.pescoco::after {
+    position: absolute;
+    content: '';
+    width: 3.6em;
+    height: 1.3em;
+    border: 0.1em solid var(--contorno);
+    border-bottom-right-radius: 1.3em;
+    border-bottom-left-radius: 1.5em;
+    background-color: var(--camiseta-sombra);
+    left: -0.5em;
+    top: 1.1em;
+    z-index: -1;
+}
